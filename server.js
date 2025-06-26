@@ -16,6 +16,13 @@ app.use(cors())
 readdirSync('./routes')
     .map((c) => app.use('/api', require('./routes/' + c)))
 
+
+app.use(express.static(path.join(__dirname, '../client/dist')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'))
+})
+
+
 // Step 3 Router
 // app.post('/api',(req,res)=>{
 //     // code
