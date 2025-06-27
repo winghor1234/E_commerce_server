@@ -1,9 +1,12 @@
 // Step 1 import ....
 const express = require('express')
+require('dotenv').config()
 const app = express()
 const morgan = require('morgan')
 const { readdirSync } = require('fs')
 const cors = require('cors')
+const path = require('path')
+
 // const authRouter = require('./routes/auth')
 // const categoryRouter = require('./routes/category')
 
