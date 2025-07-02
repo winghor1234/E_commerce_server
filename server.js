@@ -22,19 +22,12 @@ readdirSync('./routes')
 
 app.use(express.static(path.join(__dirname, '../client/dist')))
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'))
+    return res.sendFile(path.join(__dirname, '../client/dist/index.html'))
 })
 
 
-// Step 3 Router
-// app.post('/api',(req,res)=>{
-//     // code
-//     const { username,password } = req.body
-//     console.log(username,password)
-//     res.send('Jukkru 555+')
-// })
 // Step 2 Start Server
-app.listen(5001,
-    () => console.log('Server is running on port 5001'))
+app.listen(8888,
+    () => console.log('Server is running on port 8888'))
 
 

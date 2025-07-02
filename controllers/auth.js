@@ -37,7 +37,7 @@ exports.register = async (req, res) => {
         })
 
 
-        res.send('Register Success')
+        return res.send('Register Success')
     } catch (err) {
         // err
         console.log(err)

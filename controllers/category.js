@@ -9,7 +9,7 @@ exports.create = async(req,res)=>{
                 name: name
             }
         })
-        res.send(category)
+        return res.send(category)
     }catch(err){
         console.log(err)
         res.status(500).json({ message : "Server error" })
@@ -20,7 +20,7 @@ exports.list = async(req,res)=>{
     try{
         // code
         const category = await prisma.category.findMany()
-        res.send(category)
+        return res.send(category)
     }catch(err){
         console.log(err)
         res.status(500).json({ message : "Server error" })
@@ -36,7 +36,7 @@ exports.remove = async(req,res)=>{
                 id: Number(id)
              }
         })
-        res.send(category)
+        return res.send(category)
     }catch(err){
         console.log(err)
         res.status(500).json({ message : "Server error" })

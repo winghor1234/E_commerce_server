@@ -29,7 +29,7 @@ exports.changeStatus = async (req, res) => {
       data: { enabled: enabled },
     });
 
-    res.send("Update Status Success");
+    return res.send("Update Status Success");
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Server Error" });
@@ -46,7 +46,7 @@ exports.changeRole = async (req, res) => {
       data: { role: role },
     });
 
-    res.send("Update Role Success");
+    return res.send("Update Role Success");
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Server Error" });
@@ -119,7 +119,7 @@ exports.userCart = async (req, res) => {
       },
     });
     console.log(newCart);
-    res.send("Add Cart Ok");
+    return res.send("Add Cart Ok");
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Server Error" });
@@ -206,7 +206,7 @@ exports.saveOrder = async (req, res) => {
     //code
     // Step 0 Check Stripe
     // console.log(req.body)
-    // return res.send('hello Jukkru!!!')
+    // return return res.send('hello Jukkru!!!')
     // stripePaymentId String
     // amount          Int
     // status          String
