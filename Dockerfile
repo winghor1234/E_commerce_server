@@ -7,6 +7,9 @@ COPY package*.json ./
 RUN npm install 
 # Copy the rest of the application code
 COPY . .
+
+RUN npx prisma generate
+
 # Container port exposed
 EXPOSE 5002
 
