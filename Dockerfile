@@ -8,7 +8,7 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 # Container port exposed
-EXPOSE 5001
+EXPOSE 5002
 
 # Start the application
 CMD ["npm", "start"]
