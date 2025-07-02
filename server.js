@@ -27,7 +27,7 @@ app.get('*', (req, res) => {
 
 
 // Step 2 Start Server
-app.listen(8888,
-    () => console.log('Server is running on port 8888'))
+app.listen(5001,
+    () => console.log('Server is running on port 5001'))
 
 
