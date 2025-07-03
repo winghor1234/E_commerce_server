@@ -12,6 +12,9 @@ RUN npm install
 
 # คัดลอก Prisma schema และ generate Prisma Client
 COPY prisma ./prisma
+# ติดตั้ง Prisma CLI
+RUN npm install -g prisma   
+# สร้าง Prisma Client
 RUN npx prisma generate
 
 # คัดลอกโค้ดส่วนที่เหลือ
