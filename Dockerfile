@@ -1,17 +1,24 @@
+# ใช้ Node.js เวอร์ชัน LTS บน Alpine (เบาและเร็ว)
 FROM node:lts-alpine
-# Set the working directory
-WORKDIR /app
-# Copy package.json and package-lock.json
-COPY package*.json ./
-# Install dependencies
-RUN npm install 
-# Copy the rest of the application code
-COPY . .
 
+# ตั้ง working directory
+WORKDIR /app
+
+# คัดลอก package.json และ lock ไฟล์มาก่อน (เพื่อ caching ที่ดี)
+COPY package*.json ./
+
+# ติดตั้ง dependencies ก่อน
+RUN npm install
+
+# คัดลอก Prisma schema และ generate Prisma Client
+COPY prisma ./prisma
 RUN npx prisma generate
 
-# Container port exposed
+# คัดลอกโค้ดส่วนที่เหลือ
+COPY . .
+
+# เปิดพอร์ต (ตามที่ server.js ใช้)
 EXPOSE 5002
 
-# Start the application
+# รันแอป (คุณสามารถใส่ prisma generate ใน npm script ด้วยก็ได้)
 CMD ["npm", "start"]
